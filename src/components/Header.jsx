@@ -21,7 +21,7 @@ const Header = () => {
         });
     }
     useEffect(()=>{
-        onAuthStateChanged(auth, (user) => {
+        const unsubscibe = onAuthStateChanged(auth, (user) => {
             console.log("heelo")
             if (user) {
                 const {uid, email, displayName} = auth.currentUser;
@@ -33,6 +33,7 @@ const Header = () => {
                 navigate("/login")
             }
           })
+          return ()=>unsubscibe();
     },[])
     return (
         <header className="py-4 px-22 left-0 right-0 fixed z-10 bg-gradient-to-b from-black">
