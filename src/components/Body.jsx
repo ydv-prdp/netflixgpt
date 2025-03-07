@@ -1,8 +1,8 @@
 import Header from "./Header"
 import Login from "./Login"
+import Browse from "./Browse"
 import MainComponent from "./MainComponent"
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
-
 const Body = () => {
     const appRouter = createBrowserRouter([
         {
@@ -12,11 +12,14 @@ const Body = () => {
         {
             path:"/login",
             element:<Login/>
+        },
+        {
+            path:"/browse",
+            element:<Browse/>
         }
     ])
   return (
     <section className="relative">
-        <Header/>
         <RouterProvider router={appRouter}/>
     </section>
   )
